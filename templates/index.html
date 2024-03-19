@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planet Nine</title>
+    <link href='{{ url_for("static", filename="styles/style.css") }}' rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+    <script src="https://kit.fontawesome.com/40e0d7e84d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <h1 class="kalam-regular">Planet Nine App</h1>
+
+    <div id="container">
+        <div class="image-div">
+            {% if filename %}
+            <img id="image" src="{{ url_for('display_image', filename=filename) }}" alt="image_to_predict"/>
+            {% else %}
+            <div class='shadow'>image ?</div>
+            {% endif %}
+            <p> 
+                {% if prediction %}
+                prediction: <span style="color: rgb(197, 19, 19);">{{ prediction }}</span>
+                {% endif %}
+            </p>
+        </div>
+        <div class="horizontal-line"></div>
+        <div class="analytics-div">
+            {% if prediction %}
+                <canvas id="bar-chart" width="350" height="350"></canvas>
+            {% else %}
+                <div class='shadow'>analytics...</div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div>
+        <form method="post" action="/" id="upload-form" enctype="multipart/form-data">
+            <div class="choose-file-div"> 
+                <input id="input-image" type="file" name="file" autocomplete="off" required/>
+            </div>
+            <button class="btn" type="submit">predict <i class="fa-solid fa-file-import"></i></button>
+        </form>
+    </div>
+    <div id="msg-div">
+        <p>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </p>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('bar-chart').getContext('2d');
+        var barChart = new Chart(ctx, {
+            type:'bar',
+            data: {
+                labels: {{ labels | safe }},
+                datasets: [
+                    {
+                        data: {{ values | safe }},
+                        label: 'predicted',
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',],
+                        borderColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(54, 162, 235)',,
+                            'rgb(153, 102, 255)'],
+                        borderWidth: 1
+                    }
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        suggestedMin: 0,
+                        suggestedMax: 1,
+                        title: {
+                            display: true,
+                            text: 'probability'
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Top three predictions'
+                        // padding: {
+                        //     top: 10,
+                        //     bottom: 30
+                        // }
+                    }
+            }
+            }
+        });
+    </script>
+
+</body>
+</html>
