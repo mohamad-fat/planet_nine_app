@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+@import url('./scroller.css');
 
 h1 {
     text-align: center;
+    padding: 0;
+    margin: 10px;
 }
 
 body {
@@ -13,13 +16,13 @@ body {
 
 #container {
     width: 80%;
-    height: 70%;
+    height: 72%;
     background-color: aliceblue;
     border-radius: 10px;
     display: flex;
     margin: auto;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .image-div {
@@ -27,7 +30,7 @@ body {
     height: 250px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
 }
 
@@ -42,14 +45,14 @@ body {
 }
 
 .horizontal-line {
-    margin: 10px 10px;
+    margin: 0 10px;
     height: 90%;
     width: 2px;
     background-color: rgb(164, 164, 164);
 }
 
 .analytics-div {
-    width: 200px;
+    width: 300px;
     height: 200px;
     display: flex;
     align-items: center;
@@ -71,21 +74,20 @@ body {
     margin: auto;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 17px;
 }
 
 #msg-div {
-    width: 80%;
-    height: 30px;
+    width: 90%;
     margin: auto;
-    margin-top: 20px;
+    height: 20px;
+    /* margin-top: 10px; */
 }
 
 #msg-div p {
     color: #fff;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
-    margin-left: 10px;
 }
 
 input[type=file]::file-selector-button {
@@ -145,15 +147,14 @@ background: #0d45a5;
     }
 
     .horizontal-line {
-        margin: 5px 10px;
+        margin: 0 10px;
         height: 2px;
         width: 90%;
         background-color: rgb(164, 164, 164);
     }
 
     .analytics-div {
-        width: 200px;
-        height: 200px;
+        margin-right: 5px;
     }
 
     #upload-form {
@@ -177,9 +178,10 @@ background: #0d45a5;
         border-radius: 5px;
     }
 
-    #msg-div {
+    #msg-div p{
         margin-top: 5px;
-        font-size: 10px;
+        font-size: 13px;
+        margin-left: 10px;
     }
 
 }

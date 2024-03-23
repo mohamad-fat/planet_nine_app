@@ -13,6 +13,14 @@
 <body>
     <h1 class="kalam-regular">Planet Nine App</h1>
 
+    <div class="scroller" data-speed="fast">
+        <ul class="tag-list scroller__inner">
+          {% for object in objects %}
+            <li>{{ object }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
     <div id="container">
         <div class="image-div">
             {% if filename %}
@@ -29,7 +37,7 @@
         <div class="horizontal-line"></div>
         <div class="analytics-div">
             {% if prediction %}
-                <canvas id="bar-chart" width="350" height="350"></canvas>
+                <canvas id="bar-chart" width="250px" height="220px"></canvas>
             {% else %}
                 <div class='shadow'>analytics...</div>
             {% endif %}
@@ -57,51 +65,53 @@
     </div>
 
     <script>
-        var ctx = document.getElementById('bar-chart').getContext('2d');
-        var barChart = new Chart(ctx, {
-            type:'bar',
-            data: {
-                labels: {{ labels | safe }},
-                datasets: [
-                    {
-                        data: {{ values | safe }},
-                        label: 'predicted',
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',],
-                        borderColor: [
-                            'rgb(255, 99, 132)',
-                            'rgb(54, 162, 235)',,
-                            'rgb(153, 102, 255)'],
-                        borderWidth: 1
-                    }
-                ],
-            },
-            options: {
-                scales: {
-                    y: {
-                        suggestedMin: 0,
-                        suggestedMax: 1,
-                        title: {
-                            display: true,
-                            text: 'probability'
-                        }
-                    }
-                },
-                plugins: {
+    var ctx = document.getElementById('bar-chart').getContext('2d');
+    var barChart = new Chart(ctx, {
+        type:'bar',
+        data: {
+            labels: {{ labels | safe }},
+            datasets: [
+                {
+                    data: {{ values | safe }},
+                    label: 'predicted',
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',],
+                    borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',,
+                        'rgb(153, 102, 255)'],
+                    borderWidth: 1
+                }
+            ],
+        },
+        options: {
+            responsive: false,
+            scales: {
+                y: {
+                    suggestedMin: 0,
+                    suggestedMax: 100,
                     title: {
                         display: true,
-                        text: 'Top three predictions'
-                        // padding: {
-                        //     top: 10,
-                        //     bottom: 30
-                        // }
+                        text: 'percentage'
                     }
-            }
-            }
-        });
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Top three predictions',
+                    padding: {
+                        top: 10,
+                        bottom: 5
+                    }
+                }
+        }
+        }
+    });
     </script>
+    <script src="../static/scripts/scroller.js"></script>
 
 </body>
 </html>

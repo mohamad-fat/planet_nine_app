@@ -4,7 +4,7 @@ import os
 from waitress import serve
 from werkzeug.utils import secure_filename
 
-from model import predict_object
+from model import predict_object, get_classes
 
 app = Flask(__name__)
 
@@ -21,7 +21,7 @@ def allowed_file(filename):
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', objects=get_classes())
 
 @app.route('/', methods=['POST'])
 def upload_image():
@@ -43,7 +43,12 @@ def upload_image():
         labels = [row[0] for row in data]
         values = [row[1] for row in data]
 
-        return render_template('index.html', filename=filename, prediction=prediction, labels=labels, values=values)
+        return render_template('index.html', 
+                               filename=filename, 
+                               prediction=prediction, 
+                               labels=labels, 
+                               values=values,
+                               objects=get_classes())
     else:
         flash('Alowed image types are - png, jpg, jpeg, gif')
         return redirect(request.url)
