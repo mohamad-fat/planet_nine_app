@@ -4,34 +4,41 @@
 h1 {
     text-align: center;
     padding: 0;
-    margin: 10px;
+    margin: 10px 0 5px 0;
 }
 
 body {
-    /* width: 100vw; */
     height: 100vh;
-    background-color: #D9AFD9;
-    background-image: linear-gradient(0deg, #816bb5 0%, #97D9E1 100%);
+    background-color: #fff;
+    background-image: linear-gradient(0deg, #937dc7 0%, #97D9E1 100%);
+}
+
+#coming-soon-span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 13px;
 }
 
 #container {
     width: 80%;
-    height: 75%;
+    height: 65%;
     background-color: aliceblue;
     border-radius: 10px;
     display: flex;
     margin: auto;
     align-items: center;
-    justify-content: space-around;
-    margin-top: 40px;
+    justify-content: space-evenly;
 }
 
 .image-div {
-    width: 250px;
-    height: 250px;
+    width: 40%;
+    height: 400px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: column;
 }
 
@@ -42,8 +49,8 @@ body {
 }
 
 #image {
-    width: 250px;
-    height: 250px;
+    max-width: 80%;
+    max-height: 350px;
 }
 
 .horizontal-line {
@@ -54,11 +61,14 @@ body {
 }
 
 .analytics-div {
-    width: 300px;
-    height: 200px;
+    width: 40%;
+    height: 60%;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 10px;
+    margin-bottom: 20px;
 }
 
 .shadow {
@@ -80,16 +90,25 @@ body {
 }
 
 #msg-div {
-    width: 90%;
+    width: 80%;
+    height: 15px;
     margin: auto;
-    height: 20px;
-    /* margin-top: 10px; */
 }
 
 #msg-div p {
     color: #fff;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
+    margin-left: 5px;
+}
+
+#lower-right {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    color: #fff;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
 }
 
 input[type=file]::file-selector-button {
@@ -143,11 +162,19 @@ background: #0d45a5;
 
     #container {
         width: 90%;
+        height: 71%;
+        margin-top: 40px;
         flex-direction: column;
     }
 
+    .image-div {
+        width: 80%;
+        height: 40%;
+    }
+
     #image {
-        width: 200px;
+        max-width: 280px;
+        height: 200px;
     }
 
     .horizontal-line {
@@ -158,12 +185,15 @@ background: #0d45a5;
     }
 
     .analytics-div {
-        margin-right: 5px;
+        width: 80%;
+        height: 40%;
+        margin-right: 10px;
     }
 
     #upload-form {
         width: 90%;
         height: 50px;
+        margin-top: 13px;
     }
 
     .btn {
@@ -182,10 +212,16 @@ background: #0d45a5;
         border-radius: 5px;
     }
 
+    #msg-div {
+        width: 90%;
+    }
+
     #msg-div p{
-        margin-top: 5px;
         font-size: 13px;
-        margin-left: 10px;
+    }
+
+    #lower-right {
+        margin-bottom: -10px;
     }
 
 }
