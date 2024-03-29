@@ -2,16 +2,15 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 
-IMG_SHAPE = 260
+IMG_SHAPE = 300
 model_path = 'model/version_0p1.keras'
 objects = ['earth', 'jupiter', 'mars', 'mercury', 'moon', 'neptune', 'pluto', 'saturn', 'sun', 'uranus', 'venus']
 model = tf.keras.models.load_model(model_path, compile=False)
 
 def preprocessing_image(image_path):
     img = Image.open(image_path)
-    # img = tf.image.resize_with_crop_or_pad(img, IMG_SHAPE, IMG_SHAPE)
     img = img.resize((IMG_SHAPE, IMG_SHAPE))
-    # img = np.array(img) / 255.0
+    img = np.array(img) / 255.0
     return img
 
 def get_classes():
