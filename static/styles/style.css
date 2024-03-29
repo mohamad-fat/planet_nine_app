@@ -93,22 +93,28 @@ body {
     width: 80%;
     height: 15px;
     margin: auto;
+
 }
 
 #msg-div p {
     color: #fff;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
-    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 0;
 }
 
 #lower-right {
-    position: absolute;
-    right: 10px;
-    bottom: 0;
     color: #fff;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 15px;
+    text-align: right;
+    position: relative;
+    bottom: 5px;
+}
+
+#lower-right p {
+    margin: 0;
 }
 
 input[type=file]::file-selector-button {
@@ -162,7 +168,7 @@ background: #0d45a5;
 
     #container {
         width: 90%;
-        height: 71%;
+        height: 73%;
         margin-top: 40px;
         flex-direction: column;
     }
@@ -221,7 +227,7 @@ background: #0d45a5;
     }
 
     #lower-right {
-        margin-bottom: -10px;
+
     }
 
 }
