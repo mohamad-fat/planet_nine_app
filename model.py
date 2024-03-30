@@ -3,9 +3,9 @@ import numpy as np
 from PIL import Image
 
 IMG_SHAPE = 300
-model_path = 'model/version_0p1.keras'
+model_path = './model/version_0p4.keras'
 objects = ['earth', 'jupiter', 'mars', 'mercury', 'moon', 'neptune', 'pluto', 'saturn', 'sun', 'uranus', 'venus']
-model = tf.keras.models.load_model(model_path, compile=False)
+model = tf.keras.saving.load_model(model_path, compile=False, safe_mode=True)
 
 def preprocessing_image(image_path):
     img = Image.open(image_path)
@@ -38,5 +38,9 @@ def predict_object(img_path):
     ]
     print(data)
     return data
+
+img_path = './static/uploads/moon2.jpg'
+
+predict_object(img_path)
 
 

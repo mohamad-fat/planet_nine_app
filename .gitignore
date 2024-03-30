@@ -1,3 +1,6 @@
 .conda
 .env
 __pycache__
+celestial objects
+to_predict
+planet_nine_model_v0p3.py
