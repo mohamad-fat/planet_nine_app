@@ -1,5 +1,4 @@
 from flask import Flask, flash, render_template, request, redirect, url_for
-import urllib.request
 import os
 from waitress import serve
 from werkzeug.utils import secure_filename

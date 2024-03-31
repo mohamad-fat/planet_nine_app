@@ -1,12 +1,11 @@
-import tensorflow as tf
 import numpy as np
 from PIL import Image
+import keras
 
 IMG_SHAPE = 300
 model_path = './model/version_0p4.keras'
 objects = ['earth', 'jupiter', 'mars', 'mercury', 'moon', 'neptune', 'pluto', 'saturn', 'sun', 'uranus', 'venus']
-model = tf.keras.saving.load_model(model_path, compile=False, safe_mode=True)
-
+model = keras.models.load_model(model_path)
 def preprocessing_image(image_path):
     img = Image.open(image_path)
     img = img.resize((IMG_SHAPE, IMG_SHAPE))
@@ -39,7 +38,7 @@ def predict_object(img_path):
     print(data)
     return data
 
-img_path = './static/uploads/moon2.jpg'
+img_path = './to_predict/saturn2.jpeg'
 
 predict_object(img_path)
 
