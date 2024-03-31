@@ -49,20 +49,11 @@ requests-oauthlib==2.0.0
 rich==13.7.1
 rsa==4.9
 six==1.16.0
-<<<<<<< HEAD
 # tensorboard==2.15.2
 # tensorboard-data-server==0.7.2
 # tensorflow==2.15.0
 # tensorflow-estimator==2.15.0
 # tensorflow-io-gcs-filesystem==0.36.0
-# tensorflow-macos==2.15.0
-=======
-tensorboard==2.15.2
-tensorboard-data-server==0.7.2
-tensorflow==2.15.0
-tensorflow-estimator==2.15.0
-tensorflow-io-gcs-filesystem==0.36.0
->>>>>>> f9858f9a249aa3aeac4b79688a62806302266c50
 termcolor==2.4.0
 typing_extensions==4.10.0
 tzdata==2024.1
