@@ -34,7 +34,7 @@ oauthlib==3.2.2
 opt-einsum==3.3.0
 optree==0.10.0
 packaging==24.0
-pandas==2.2.1
+# pandas==2.2.1
 pillow==10.2.0
 protobuf==4.25.3
 pyasn1==0.6.0
@@ -44,16 +44,18 @@ pyparsing==3.1.2
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 pytz==2024.1
-requests==2.31.0
-requests-oauthlib==2.0.0
+# requests==2.31.0
+# requests-oauthlib==2.0.0
 rich==13.7.1
 rsa==4.9
+scipy==1.12.0
 six==1.16.0
 # tensorboard==2.15.2
 # tensorboard-data-server==0.7.2
 # tensorflow==2.15.0
 # tensorflow-estimator==2.15.0
 # tensorflow-io-gcs-filesystem==0.36.0
+# tensorflow-macos==2.15.0
 termcolor==2.4.0
 typing_extensions==4.10.0
 tzdata==2024.1

@@ -3,7 +3,7 @@ from PIL import Image
 import keras
 
 IMG_SHAPE = 300
-model_path = './model/version_0p4.keras'
+model_path = './model/version_0p5.keras'
 objects = ['earth', 'jupiter', 'mars', 'mercury', 'moon', 'neptune', 'pluto', 'saturn', 'sun', 'uranus', 'venus']
 model = keras.models.load_model(model_path)
 def preprocessing_image(image_path):
@@ -35,10 +35,10 @@ def predict_object(img_path):
         (second_predicted, second_perc),
         (third_predicted, third_perc)
     ]
-    print(data)
+    print(predicted)
     return data
 
-img_path = './to_predict/saturn2.jpeg'
+img_path = './to_predict/moon.jpeg'
 
 predict_object(img_path)
 
