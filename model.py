@@ -2,7 +2,7 @@ import numpy as np
 from PIL import Image
 import keras
 
-IMG_SHAPE = 300
+IMG_SHAPE = 200
 model_path = './model/version_0p5.keras'
 objects = ['earth', 'jupiter', 'mars', 'mercury', 'moon', 'neptune', 'pluto', 'saturn', 'sun', 'uranus', 'venus']
 model = keras.models.load_model(model_path)
