@@ -42,8 +42,3 @@ def predict_object(img_path):
     print(predicted)
     return data
 
-# img_path = './to_predict/moon.jpeg'
-
-# predict_object(img_path)
-
-
